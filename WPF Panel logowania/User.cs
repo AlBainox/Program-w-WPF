@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Panel_logowania
 {
-    class User
+    public class User
     {
 		string imie, nazwisko, login, haslo, dataUrodzenia, adres, email;
 

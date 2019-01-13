@@ -54,7 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="panelLogowania.cs" />
     <Compile Include="panelUsera.cs" />
     <Compile Include="PanelUzytkownika.xaml.cs">
       <DependentUpon>PanelUzytkownika.xaml</DependentUpon>

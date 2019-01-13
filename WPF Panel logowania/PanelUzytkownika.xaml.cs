@@ -22,6 +22,22 @@ namespace WPF_Panel_logowania
 		public PanelUzytkownika()
 		{
 			InitializeComponent();
+			MainWindow mainWindow = new MainWindow();
+			//DataGridOfPeople.ItemsSource = mainWindow.listOfUsers;
+			
 		}
+
+		
+
+		private void btnWyloguj_Click(object sender, RoutedEventArgs e)
+		{
+			MainWindow main = new MainWindow();
+			main.MetodaWylogowujaca();
+
+			MessageBox.Show("Użytkownik został poprawnie wylogowany");
+			this.Close();
+		}
+
+		
 	}
 }

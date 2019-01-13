@@ -15,21 +15,55 @@ using System.IO;
 
 namespace WPF_Panel_logowania
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Rejestracja.xaml
-    /// </summary>
-    public partial class Rejestracja : Window
-    {
-        public Rejestracja()
-        {
-            InitializeComponent();
-		
+	/// <summary>
+	/// Logika interakcji dla klasy Rejestracja.xaml
+	/// </summary>
+	public partial class Rejestracja : Window
+	{
+		public Rejestracja()
+		{
+			InitializeComponent();
+
 
 		}
+		private List<User> ListOfUsers = new List<User>
+		{
+
+		};
+
+		public void PobieranieUserow()
+		{
+			foreach (var line in File.ReadAllLines("PlikTekstowy.txt"))
+			{
+				var userData = line.Split(';');
+				var im = userData[0];
+				var nazw = userData[1];
+				var login = userData[2];
+				var haslo = userData[3];
+				var dataUro = userData[4];
+				var adres = userData[5];
+				var email = userData[6];
+
+				var userFromFile = new User(im, nazw, login, haslo, dataUro, adres, email);
+
+				ListOfUsers.Add(userFromFile);
+			}
+		}
+
 
 		private void btnZapisz_Click(object sender, RoutedEventArgs e)
 		{
-		    panelUsera panelUsera = null;
+			PobieranieUserow();
+			foreach (User user in ListOfUsers)
+			{
+				if (txbRejLogin.Text == user.Login)
+				{
+					MessageBox.Show("Podany login istnieje już w bazie");
+				}
+			}
+
+
+			panelUsera panelUsera = null;
 			string[] line = new string[7];
 			line[0] = txbRejImie.Text;
 			line[1] = txbRejNazwisko.Text;
@@ -38,7 +72,7 @@ namespace WPF_Panel_logowania
 			line[4] = txbRejDataUr.Text;
 			line[5] = txbRejAdres.Text;
 			line[6] = txbRejEmail.Text;
-			
+
 			if ((txbRejImie.Text == "") ||
 				(txbRejNazwisko.Text == "") ||
 				(txbRejLogin.Text == "") ||
@@ -48,7 +82,7 @@ namespace WPF_Panel_logowania
 				(txbRejEmail.Text == ""))
 			{
 				MessageBox.Show("Wszystkie pola muszą być wypełnione");
-				
+
 			}
 
 			while ((txbRejImie.Text != "") &&
@@ -70,11 +104,10 @@ namespace WPF_Panel_logowania
 				MessageBox.Show("Dane zostały poprawnie zapisane");
 				this.Close();
 
-				panelLogowania PanelLogowania = new panelLogowania();
-				PanelLogowania.NowyUser(line[0], line[1], line[2], line[3], line[4], line[5], line[6]);
-				panelUsera = PanelLogowania.Logowanie(line[2], line[3]);
 				break;
 			}
+
+			
 
 		}
 	}

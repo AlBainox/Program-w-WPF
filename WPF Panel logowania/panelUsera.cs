@@ -7,28 +7,17 @@ using System.Threading;
 
 namespace WPF_Panel_logowania
 {
-    class panelUsera
+    public class panelUsera
     {
 		private User LoggedUser;
+
 
 		public panelUsera(User loggedUser)
 		{
 			LoggedUser = loggedUser;
 		}
-		public void WriteOptions()
-		{
-			Console.Clear();
-			Console.WriteLine($"Witaj {LoggedUser.Imie}, Poniżej znajdują się Twoje dostępne opcje");
-			Console.WriteLine("Wybierz opcje:");
-			Console.WriteLine("1 - Zmien imie");
-			Console.WriteLine("2 - Zmien nazwisko");
-			Console.WriteLine("3 - Zmien login");
-			Console.WriteLine("4 - Zmien haslo");
-			Console.WriteLine("5 - Dadaj dane szczegółowe");
-			Console.WriteLine("6 - Wyloguj sie");
-			Console.SetCursorPosition(15, 1);
-		}
-
+				
+		
 	public void ZmienImie(string noweImie)
 		{
 			LoggedUser.Imie = noweImie;
