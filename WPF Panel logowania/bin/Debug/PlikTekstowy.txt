@@ -1,3 +1,4 @@
-al;al;al;al;al;al;al
 ed;ed;ed;ed;ed;ed;ed
-malgos;malgos;malgos;malgos;malgos;malgos;malgos
+malgos;malgos;malgos;malgos;malgos;malgos;malgosx;x;x;x;x;x;x
+x;x;x;x;x;x;al
+c;c;c;c;c;c;c

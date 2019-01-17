@@ -8,11 +8,47 @@
         Title="Panel użytkownika" Height="300" Width="700">
 	<Grid Margin="10">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="8*"/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0" Content="Imie"/>
+		<Label Grid.Row="1" Content="Nazwisko"/>
+		<Label Grid.Row="2" Content="Login"/>
+		<Label Grid.Row="3" Content="Hasło"/>
+		<Label Grid.Row="4" Content="Data urodzenia"/>
+		<Label Grid.Row="5" Content= "Adres"/>
+		<Label Grid.Row="6" Content="Email"/>
 
-		<Button x:Name="btnWyloguj" Content="Wyloguj" Grid.Column="0" HorizontalAlignment="Center" Margin="1,2,0,0" Grid.Row="1" VerticalAlignment="Center" Width="75" Click="btnWyloguj_Click" />
-		<DataGrid Name="DataGridOfPeople" HorizontalAlignment="Center" Height="auto" Margin="10,10,0,0" VerticalAlignment="Top" Width="550"/>
+		<Label x:Name="lblImie" Grid.Column="1" Grid.Row="0"/>
+		<Label x:Name="lblNazwisko" Grid.Column="1" Grid.Row="1"/>
+		<Label x:Name="lblLogin" Grid.Column="1" Grid.Row="2"/>
+		<Label x:Name="lblHaslo" Grid.Column="1" Grid.Row="3"/>
+		<Label x:Name="lblDataUr" Grid.Column="1" Grid.Row="4"/>
+		<Label x:Name="lblAdres" Grid.Column="1" Grid.Row="5"/>
+		<Label x:Name="lblEmail" Grid.Column="1" Grid.Row="6"/>
+
+		<TextBox x:Name="txbImie" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="0" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+		<TextBox x:Name="txbNazwisko" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txbLogin" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txbHaslo" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txbDataUr" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="4" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txbAdres" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="5" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txbEmail" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="6" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+
+		<Button x:Name="btnWyloguj" Content="Wyloguj" Grid.Column="3" HorizontalAlignment="Right" Margin="1,2,0,0" Grid.Row="7" VerticalAlignment="Center" Width="75" Click="btnWyloguj_Click" />
+		<Button x:Name="btnZapisz" Content="Zapisz" Grid.Column="3" HorizontalAlignment="Left" Margin="1,2,0,0" Grid.Row="7" VerticalAlignment="Center" Width="75" Click="btnZapisz_Click"  />
+		
 	</Grid>
 </Window>

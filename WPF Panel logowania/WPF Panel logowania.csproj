@@ -54,7 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="panelUsera.cs" />
     <Compile Include="PanelUzytkownika.xaml.cs">
       <DependentUpon>PanelUzytkownika.xaml</DependentUpon>
     </Compile>
@@ -62,6 +61,7 @@
       <DependentUpon>Rejestracja.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="UserManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

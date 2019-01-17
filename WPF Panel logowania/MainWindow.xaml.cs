@@ -24,38 +24,26 @@ namespace WPF_Panel_logowania
 	{
 		public MainWindow()
 		{
-			InitializeComponent();
-			PobieranieUserow();
+			InitializeComponent();			
 		}
 
-		private panelUsera PanelUsera = null;
-		private bool wylogowanie = false;
-
-		public void MetodaWylogowujaca()
+		
+		private void btnLogining_Click(object sender, RoutedEventArgs e)
 		{
-			wylogowanie = true;
-		}
-
-		private void btnZaloguj_Click(object sender, RoutedEventArgs e)
-		{
-
-			if (PanelUsera == null)
+			if ((txbLogin.Text == "") || (txbHaslo.Text == ""))
 			{
-				if ((txbLogin.Text == "") || (txbHaslo.Text == ""))
-				{
-					MessageBox.Show("Pola nie mogą być puste");
-				}
-				string Login = txbLogin.Text;
-				string Haslo = txbHaslo.Text;
-				PanelUsera = Logowanie(Login, Haslo);
-
+				MessageBox.Show("Pola nie mogą być puste");
 			}
+			string Login = txbLogin.Text;
+			string Haslo = txbHaslo.Text;
+			Logining(Login, Haslo);
+
 			txbLogin.Clear();
 			txbHaslo.Clear();
 
 		}
-		// Przycisk Rejestracja
-		private void btnWyjscie_Click(object sender, RoutedEventArgs e)
+	
+		private void btnRegistration_Click(object sender, RoutedEventArgs e)
 		{
 			Rejestracja wdwRej = new Rejestracja();
 			wdwRej.ShowDialog();
@@ -63,7 +51,7 @@ namespace WPF_Panel_logowania
 		}
 
 
-		public List<User> PobieranieUserow()
+		public List<User> DownloadingUsers()
 		{
 			List<User> ListOfUsers = new List<User>();
 
@@ -85,25 +73,21 @@ namespace WPF_Panel_logowania
 			return ListOfUsers;
 		}
 
-		public panelUsera Logowanie(string log, string has)
+		public void Logining(string log, string has)
 		{
 
-			foreach (User user in PobieranieUserow())
+			foreach (User user in DownloadingUsers())
 			{
 				if ((log == user.Login && has == user.Haslo))
-				{					
-					if (wylogowanie == false)
-					{
-						PanelUsera = new panelUsera(user);
-						MessageBox.Show("Udało Ci się pomyślnie zalogować!");
-						PanelUzytkownika panel = new PanelUzytkownika();
+				{
+					UserManager.SignIn(user);
+					MessageBox.Show("Udało Ci się pomyślnie zalogować!");
+					PanelUzytkownika panel = new PanelUzytkownika(user);
+					panel.ShowDialog();
 
-						panel.ShowDialog();
-
-					}
 				}
 			}
-			return null;
+			
 		}
 
 	}

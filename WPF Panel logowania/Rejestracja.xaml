@@ -47,7 +47,7 @@
 		<TextBox x:Name="txbRejAdres" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="5" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 		<TextBox x:Name="txbRejEmail" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="6" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 
-		<Button x:Name="btnZapisz" Content="Zapisz" Grid.Column="3" HorizontalAlignment="Left" Margin="5,0,5,0" Grid.Row="7" VerticalAlignment="Center" Width="81" Height="25" RenderTransformOrigin="0,0" Click="btnZapisz_Click" Grid.ColumnSpan="2" >
+		<Button x:Name="btnZapisz" Content="Zapisz" Grid.Column="3" HorizontalAlignment="Left" Margin="5,0,5,0" Grid.Row="7" VerticalAlignment="Center" Width="81" Height="25" RenderTransformOrigin="0,0" Click="btnSave_Click" Grid.ColumnSpan="2" >
 			<Button.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform ScaleY="1"/>

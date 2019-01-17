@@ -31,7 +31,7 @@ namespace WPF_Panel_logowania
 
 		};
 
-		public void PobieranieUserow()
+		public void DownloadingUserToCheck()
 		{
 			foreach (var line in File.ReadAllLines("PlikTekstowy.txt"))
 			{
@@ -51,9 +51,9 @@ namespace WPF_Panel_logowania
 		}
 
 
-		private void btnZapisz_Click(object sender, RoutedEventArgs e)
+		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			PobieranieUserow();
+			DownloadingUserToCheck();
 			foreach (User user in ListOfUsers)
 			{
 				if (txbRejLogin.Text == user.Login)
@@ -61,9 +61,7 @@ namespace WPF_Panel_logowania
 					MessageBox.Show("Podany login istnieje już w bazie");
 				}
 			}
-
-
-			panelUsera panelUsera = null;
+						
 			string[] line = new string[7];
 			line[0] = txbRejImie.Text;
 			line[1] = txbRejNazwisko.Text;
@@ -93,12 +91,12 @@ namespace WPF_Panel_logowania
 				(txbRejAdres.Text != "") &&
 				(txbRejEmail.Text != ""))
 			{
-				FileStream plik = new FileStream("PlikTekstowy.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-				plik.Close();
+				FileStream createFile = new FileStream("PlikTekstowy.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+				createFile.Close();
 				var userFormat = "{0};{1};{2};{3};{4};{5};{6}";
-				var dane = string.Format(userFormat, line[0], line[1], line[2], line[3], line[4], line[5], line[6]);
+				var data = string.Format(userFormat, line[0], line[1], line[2], line[3], line[4], line[5], line[6]);
 				StreamWriter file = new StreamWriter("PlikTekstowy.txt", true);
-				file.WriteLine(dane);
+				file.WriteLine(data);
 				file.Close();
 
 				MessageBox.Show("Dane zostały poprawnie zapisane");
