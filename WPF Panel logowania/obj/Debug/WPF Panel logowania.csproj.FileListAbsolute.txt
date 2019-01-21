@@ -34,3 +34,6 @@ C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\WPF_
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\WPF Panel logowania.csproj.GenerateResource.Cache
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\WPF Panel logowania.exe
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\WPF Panel logowania.pdb
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.dll
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.pdb
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.xml

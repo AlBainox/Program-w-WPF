@@ -21,7 +21,9 @@ namespace WPF_Panel_logowania
 	/// </summary>
 	public partial class PanelUzytkownika : Window
 	{
-		public PanelUzytkownika(User user)
+		private User user = UserManager.GetUser();
+
+		public PanelUzytkownika()
 		{
 			InitializeComponent();
 			lblImie.Content = user.Imie;
@@ -51,10 +53,7 @@ namespace WPF_Panel_logowania
 
 		private void btnZapisz_Click(object sender, RoutedEventArgs e)
 		{
-			User user = UserManager.GetUser();
-			
-
-			
+						
 			var userFormat = "{0};{1};{2};{3};{4};{5};{6}";
 			var newData = string.Format(
 				userFormat,
@@ -80,7 +79,15 @@ namespace WPF_Panel_logowania
 			string text = File.ReadAllText("PlikTekstowy.txt");
 			text = text.Replace(oldData, newData);
 			File.WriteAllText("PlikTekstowy.txt", text);
-		
+
+			lblImie.Content = user.Imie;
+			lblNazwisko.Content = user.Nazwisko;
+			lblLogin.Content = user.Login;
+			lblHaslo.Content = user.Haslo;
+			lblDataUr.Content = user.DataUrodzenia;
+			lblAdres.Content = user.Adres;
+			lblEmail.Content = user.Email;
+
 			MessageBox.Show("Dane zostały poprawnie zapisane");
 			
 

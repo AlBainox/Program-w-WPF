@@ -37,6 +37,7 @@ namespace WPF_Panel_logowania
 			string Login = txbLogin.Text;
 			string Haslo = txbHaslo.Text;
 			Logining(Login, Haslo);
+			
 
 			txbLogin.Clear();
 			txbHaslo.Clear();
@@ -82,12 +83,12 @@ namespace WPF_Panel_logowania
 				{
 					UserManager.SignIn(user);
 					MessageBox.Show("Udało Ci się pomyślnie zalogować!");
-					PanelUzytkownika panel = new PanelUzytkownika(user);
+					PanelUzytkownika panel = new PanelUzytkownika();
 					panel.ShowDialog();
+					
 
-				}
-			}
-			
+				}				
+			}			
 		}
 
 	}
