@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPF_Panel_logowania.PanelAdministratora"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Panel_logowania"
+        mc:Ignorable="d"
+        Title="Panel administratora" Height="400" Width="600">
+    <Grid>
+		<TabControl>
+			<TabItem Header="Zamówienia">
+				<DataGrid/>
+			</TabItem>
+			<TabItem Header="Produkty">
+				<DataGrid/>
+			</TabItem>
+			<TabItem Header="Klienci">
+				<DataGrid/>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>

@@ -8,7 +8,7 @@ namespace WPF_Panel_logowania
 {
     public class User
     {
-		string imie, nazwisko, login, haslo, dataUrodzenia, adres, email;
+		string imie, nazwisko, login, haslo, nrTel, adres, email;
 
 		public string Imie
 		{
@@ -30,10 +30,10 @@ namespace WPF_Panel_logowania
 			get { return haslo; }
 			set { haslo = value; }
 		}
-		public string DataUrodzenia
+		public string NrTelefonu
 		{
-			get { return dataUrodzenia; }
-			set { dataUrodzenia = value; }
+			get { return nrTel; }
+			set { nrTel = value; }
 		}
 		public string Adres
 		{
@@ -46,13 +46,13 @@ namespace WPF_Panel_logowania
 			set { email = value; }
 		}
 
-		public User(string imie, string nazwisko, string login, string haslo, string dataUrodzenia, string adres, string email)
+		public User(string imie, string nazwisko, string login, string haslo, string nrTel, string adres, string email)
 		{
 			this.imie = imie;
 			this.nazwisko = nazwisko;
 			this.login = login;
 			this.haslo = haslo;
-			this.dataUrodzenia = dataUrodzenia;
+			this.nrTel = nrTel;
 			this.adres = adres;
 			this.email = email;
 		}

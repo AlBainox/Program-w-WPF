@@ -58,7 +58,7 @@ namespace WPF_Panel_logowania
 			{
 				if (txbRejLogin.Text == user.Login)
 				{
-					MessageBox.Show("Podany login istnieje już w bazie");
+					MessageBox.Show("Podany login istnieje już w bazie","Błąd",MessageBoxButton.OK,MessageBoxImage.Error);
 				}
 			}
 						
@@ -67,7 +67,7 @@ namespace WPF_Panel_logowania
 			line[1] = txbRejNazwisko.Text;
 			line[2] = txbRejLogin.Text;
 			line[3] = txbRejHaslo.Text;
-			line[4] = txbRejDataUr.Text;
+			line[4] = txbRejNrTel.Text;
 			line[5] = txbRejAdres.Text;
 			line[6] = txbRejEmail.Text;
 
@@ -75,11 +75,11 @@ namespace WPF_Panel_logowania
 				(txbRejNazwisko.Text == "") ||
 				(txbRejLogin.Text == "") ||
 				(txbRejHaslo.Text == "") ||
-				(txbRejDataUr.Text == "") ||
+				(txbRejNrTel.Text == "") ||
 				(txbRejAdres.Text == "") ||
 				(txbRejEmail.Text == ""))
 			{
-				MessageBox.Show("Wszystkie pola muszą być wypełnione");
+				MessageBox.Show("Wszystkie pola muszą być wypełnione","Błąd", MessageBoxButton.OK,MessageBoxImage.Error);
 
 			}
 
@@ -87,7 +87,7 @@ namespace WPF_Panel_logowania
 				(txbRejNazwisko.Text != "") &&
 				(txbRejLogin.Text != "") &&
 				(txbRejHaslo.Text != "") &&
-				(txbRejDataUr.Text != "") &&
+				(txbRejNrTel.Text != "") &&
 				(txbRejAdres.Text != "") &&
 				(txbRejEmail.Text != ""))
 			{
@@ -99,7 +99,7 @@ namespace WPF_Panel_logowania
 				file.WriteLine(data);
 				file.Close();
 
-				MessageBox.Show("Dane zostały poprawnie zapisane");
+				MessageBox.Show("Dane zostały poprawnie zapisane", "Zapis danych",MessageBoxButton.OK,MessageBoxImage.Information);
 				this.Close();
 
 				break;

@@ -27,7 +27,7 @@
 		<Label Grid.Row="1" Content="Nazwisko"/>
 		<Label Grid.Row="2" Content="Login"/>
 		<Label Grid.Row="3" Content="Hasło"/>
-		<Label Grid.Row="4" Content="Data urodzenia"/>
+		<Label Grid.Row="4" Content="Numer telefonu"/>
 		<Label Grid.Row="5" Content= "Adres"/>
 		<Label Grid.Row="6" Content="Email"/>
 
@@ -35,7 +35,7 @@
 		<Label x:Name="lblNazwisko" Grid.Column="1" Grid.Row="1" Content="{Binding ElementName=txbRejNazwisko, Path=Text}"/>
 		<Label x:Name="lblLogin" Grid.Column="1" Grid.Row="2" Content="{Binding ElementName=txbRejLogin, Path=Text}"/>
 		<Label x:Name="lblHaslo" Grid.Column="1" Grid.Row="3" Content="{Binding ElementName=txbRejHaslo, Path=Text}"/>
-		<Label x:Name="lblDataUr" Grid.Column="1" Grid.Row="4" Content="{Binding ElementName=txbRejDataUr, Path=Text}"/>
+		<Label x:Name="lblNrTel" Grid.Column="1" Grid.Row="4" Content="{Binding ElementName=txbRejNrTel, Path=Text}"/>
 		<Label x:Name="lblAdres" Grid.Column="1" Grid.Row="5" Content="{Binding ElementName=txbRejAdres,Path=Text}"/>
 		<Label x:Name="lblEmail" Grid.Column="1" Grid.Row="6" Content="{Binding ElementName=txbRejEmail,Path=Text}"/>
 
@@ -43,7 +43,7 @@
 		<TextBox x:Name="txbRejNazwisko" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 		<TextBox x:Name="txbRejLogin" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 		<TextBox x:Name="txbRejHaslo" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-		<TextBox x:Name="txbRejDataUr" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="4" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txbRejNrTel" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="4" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 		<TextBox x:Name="txbRejAdres" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="5" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 		<TextBox x:Name="txbRejEmail" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="6" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
 

@@ -37,3 +37,5 @@ C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\WPF 
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.dll
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.pdb
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.xml
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\PanelAdministratora.g.cs
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\PanelAdministratora.baml

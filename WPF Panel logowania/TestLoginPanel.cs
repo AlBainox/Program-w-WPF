@@ -59,7 +59,7 @@ namespace WPF_Panel_logowania
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
-			Assert.AreEqual(SampleUser.DataUrodzenia, result.DataUrodzenia);
+			Assert.AreEqual(SampleUser.NrTelefonu, result.NrTelefonu);
 		}
 		[TestCase]
 		public void SignInAdresEqualResult()

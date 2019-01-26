@@ -30,7 +30,7 @@ namespace WPF_Panel_logowania
 			lblNazwisko.Content = user.Nazwisko;
 			lblLogin.Content = user.Login;
 			lblHaslo.Content = user.Haslo;
-			lblDataUr.Content = user.DataUrodzenia;
+			lblNrTel.Content = user.NrTelefonu;
 			lblAdres.Content = user.Adres;
 			lblEmail.Content = user.Email;
 
@@ -38,16 +38,17 @@ namespace WPF_Panel_logowania
 			txbNazwisko.Text = user.Nazwisko;
 			txbLogin.Text = user.Login;
 			txbHaslo.Text = user.Haslo;
-			txbDataUr.Text = user.DataUrodzenia;
+			txbNrTel.Text = user.NrTelefonu;
 			txbAdres.Text = user.Adres;
 			txbEmail.Text = user.Email;
 		}
 
 
 		private void btnWyloguj_Click(object sender, RoutedEventArgs e)
-		{
+		{			
 			UserManager.LogOut();
-			MessageBox.Show("Użytkownik został poprawnie wylogowany");
+			MessageBox.Show("Użytkownik został poprawnie wylogowany", "", MessageBoxButton.OK,MessageBoxImage.Warning);
+			
 			this.Close();
 		}
 
@@ -61,7 +62,7 @@ namespace WPF_Panel_logowania
 				txbNazwisko.Text,
 				txbLogin.Text,
 				txbHaslo.Text,
-				txbDataUr.Text,
+				txbNrTel.Text,
 				txbAdres.Text,
 				txbEmail.Text);
 
@@ -72,7 +73,7 @@ namespace WPF_Panel_logowania
 				user.Nazwisko,
 				user.Login,
 				user.Haslo,
-				user.DataUrodzenia,
+				user.NrTelefonu,
 				user.Adres,
 				user.Email);
 
@@ -84,11 +85,11 @@ namespace WPF_Panel_logowania
 			lblNazwisko.Content = user.Nazwisko;
 			lblLogin.Content = user.Login;
 			lblHaslo.Content = user.Haslo;
-			lblDataUr.Content = user.DataUrodzenia;
+			lblNrTel.Content = user.NrTelefonu;
 			lblAdres.Content = user.Adres;
 			lblEmail.Content = user.Email;
 
-			MessageBox.Show("Dane zostały poprawnie zapisane");
+			MessageBox.Show("Dane zostały poprawnie zapisane","Zapis danych",MessageBoxButton.OK,MessageBoxImage.Information);
 			
 
 
