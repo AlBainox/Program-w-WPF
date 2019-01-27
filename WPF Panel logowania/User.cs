@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace WPF_Panel_logowania
 {
-    public class User
-    {
-		string imie, nazwisko, login, haslo, nrTel, adres, email;
+	public enum UserRole
+	{
+		user,
+		admin
+	}
+	public class User
+	{
+		string  imie, nazwisko, login, haslo, nrTel, adres, email;
+
+		public UserRole Role { get; set; }
 
 		public string Imie
 		{
@@ -46,8 +53,9 @@ namespace WPF_Panel_logowania
 			set { email = value; }
 		}
 
-		public User(string imie, string nazwisko, string login, string haslo, string nrTel, string adres, string email)
+		public User(UserRole role, string imie, string nazwisko, string login, string haslo, string nrTel, string adres, string email)
 		{
+			this.Role = role;
 			this.imie = imie;
 			this.nazwisko = nazwisko;
 			this.login = login;

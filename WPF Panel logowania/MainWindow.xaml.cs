@@ -28,8 +28,8 @@ namespace WPF_Panel_logowania
 			btnWyswietl.IsEnabled = false;
 		}
 
-		bool adminChecked = false;
 
+		
 		public bool DisplaybtnWyswietl()
 		{
 			var result = UserManager.GetUser();
@@ -66,8 +66,8 @@ namespace WPF_Panel_logowania
 			}
 			string Login = txbLogin.Text;
 			string Haslo = txbHaslo.Text;
-					
-			Logining(Login, Haslo, adminChecked);
+
+			Logining(Login, Haslo);
 
 			btnWyswietl.IsEnabled = DisplaybtnWyswietl();
 			btnZaloguj.IsEnabled = _DisplayRestOfControls();
@@ -86,43 +86,42 @@ namespace WPF_Panel_logowania
 		}
 
 
-		public List<User> DownloadingUsers(bool admin)
+		public List<User> DownloadingUsers()
 		{
 			List<User> ListOfUsers = new List<User>();
 
-			if (admin == false)
+
+			foreach (var line in File.ReadAllLines("PlikTekstowy.txt"))
 			{
-				foreach (var line in File.ReadAllLines("PlikTekstowy.txt"))
+				var userData = line.Split(';');
+				var result = userData[0];
+				var user = "user";
+				if (result == user)
 				{
-					var userData = line.Split(';');
-					var im = userData[0];
-					var nazw = userData[1];
-					var login = userData[2];
-					var haslo = userData[3];
-					var nrTel = userData[4];
-					var adres = userData[5];
-					var email = userData[6];
-
-					var userFromFile = new User(im, nazw, login, haslo, nrTel, adres, email);
-
-					ListOfUsers.Add(userFromFile);
+					userData[0] = 0.ToString();
 				}
+				var role = (UserRole)int.Parse(userData[0]);				
+				var im = userData[1];
+				var nazw = userData[2];
+				var login = userData[3];
+				var haslo = userData[4];
+				var nrTel = userData[5];
+				var adres = userData[6];
+				var email = userData[7];
+
+				var userFromFile = new User(role,im, nazw, login, haslo, nrTel, adres, email);
+
+				ListOfUsers.Add(userFromFile);
 			}
-			if (admin == true)
-			{
-
-				var adminAccount = new User("admin", "admin", "admin", "admin", "admin", "admin", "admin");
-
-				ListOfUsers.Add(adminAccount);
-
-			}
+						
 			return ListOfUsers;
 		}
+		
 
-		public void Logining(string log, string has, bool adminChecked)
+		public void Logining(string log, string has)
 		{
 
-			foreach (User user in DownloadingUsers(adminChecked))
+			foreach (User user in DownloadingUsers())
 			{
 				if ((log == user.Login && has == user.Haslo))
 				{
@@ -131,12 +130,12 @@ namespace WPF_Panel_logowania
 					UserManager.SignIn(user);
 					MessageBox.Show("Udało Ci się pomyślnie zalogować!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 					btnWyswietl.IsEnabled = !btnWyswietl.IsEnabled;
-					if (adminChecked == false)
+					if (user.Role==UserRole.user)
 					{
 						PanelUzytkownika panelUzytkownika = new PanelUzytkownika();
 						panelUzytkownika.ShowDialog();
 					}
-					if (adminChecked == true)
+					if (user.Role==UserRole.admin)
 					{
 						PanelAdministratora adminPanel = new PanelAdministratora();
 						adminPanel.ShowDialog();
@@ -146,17 +145,23 @@ namespace WPF_Panel_logowania
 			}
 		}
 
-		private void chbAdmin_Checked(object sender, RoutedEventArgs e)
-		{
-			adminChecked = true;
-		}
+
 
 		private void btnWyswietl_Click(object sender, RoutedEventArgs e)
 		{
 			PanelUzytkownika panelUzytkownika = new PanelUzytkownika();
-			panelUzytkownika.ShowDialog();
+
+			if (UserManager.GetUser().Role== UserRole.admin)
+			{
+				PanelAdministratora administrator = new PanelAdministratora();
+				administrator.ShowDialog();
+			}
+			else
+			{
+				panelUzytkownika.ShowDialog();
+			}
 		}
 
-		
+
 	}
 }

@@ -14,7 +14,8 @@ namespace WPF_Panel_logowania
 		public void SignInNameEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
@@ -25,7 +26,8 @@ namespace WPF_Panel_logowania
 		public void SignInSurnameEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
@@ -35,7 +37,8 @@ namespace WPF_Panel_logowania
 		public void SignInLoginEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
@@ -45,7 +48,8 @@ namespace WPF_Panel_logowania
 		public void SignInPasswordEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
@@ -55,7 +59,8 @@ namespace WPF_Panel_logowania
 		public void SignInDtOfBrthEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
@@ -65,7 +70,8 @@ namespace WPF_Panel_logowania
 		public void SignInAdresEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
@@ -75,12 +81,13 @@ namespace WPF_Panel_logowania
 		public void SignInEmailEqualResult()
 		{
 			string dane = "xxx";
-			var SampleUser = new User(dane, dane, dane, dane, dane, dane, dane);
+			UserRole role = UserRole.user;
+			var SampleUser = new User(role, dane, dane, dane, dane, dane, dane, dane);
 
 			UserManager.SignIn(SampleUser);
 			var result = UserManager.GetUser();
 			Assert.AreEqual(SampleUser.Email, result.Email);
 		}
-		
+
 	}
 }

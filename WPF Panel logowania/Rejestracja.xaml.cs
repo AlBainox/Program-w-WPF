@@ -36,15 +36,22 @@ namespace WPF_Panel_logowania
 			foreach (var line in File.ReadAllLines("PlikTekstowy.txt"))
 			{
 				var userData = line.Split(';');
-				var im = userData[0];
-				var nazw = userData[1];
-				var login = userData[2];
-				var haslo = userData[3];
-				var dataUro = userData[4];
-				var adres = userData[5];
-				var email = userData[6];
+				var result = userData[0];
+				var user = "user";
+				if (result == user)
+				{
+					userData[0] = 0.ToString();
+				}
+				var role = (UserRole)int.Parse(userData[0]);				
+				var im = userData[1];
+				var nazw = userData[2];
+				var login = userData[3];
+				var haslo = userData[4];
+				var dataUro = userData[5];
+				var adres = userData[6];
+				var email = userData[7];
 
-				var userFromFile = new User(im, nazw, login, haslo, dataUro, adres, email);
+				var userFromFile = new User(role,im, nazw, login, haslo, dataUro, adres, email);
 
 				ListOfUsers.Add(userFromFile);
 			}
@@ -58,18 +65,19 @@ namespace WPF_Panel_logowania
 			{
 				if (txbRejLogin.Text == user.Login)
 				{
-					MessageBox.Show("Podany login istnieje już w bazie","Błąd",MessageBoxButton.OK,MessageBoxImage.Error);
+					MessageBox.Show("Podany login istnieje już w bazie", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 			}
-						
-			string[] line = new string[7];
-			line[0] = txbRejImie.Text;
-			line[1] = txbRejNazwisko.Text;
-			line[2] = txbRejLogin.Text;
-			line[3] = txbRejHaslo.Text;
-			line[4] = txbRejNrTel.Text;
-			line[5] = txbRejAdres.Text;
-			line[6] = txbRejEmail.Text;
+
+			string[] line = new string[8];
+			line[0] = UserRole.user.ToString();
+			line[1] = txbRejImie.Text;
+			line[2] = txbRejNazwisko.Text;
+			line[3] = txbRejLogin.Text;
+			line[4] = txbRejHaslo.Text;
+			line[5] = txbRejNrTel.Text;
+			line[6] = txbRejAdres.Text;
+			line[7] = txbRejEmail.Text;
 
 			if ((txbRejImie.Text == "") ||
 				(txbRejNazwisko.Text == "") ||
@@ -93,8 +101,8 @@ namespace WPF_Panel_logowania
 			{
 				FileStream createFile = new FileStream("PlikTekstowy.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 				createFile.Close();
-				var userFormat = "{0};{1};{2};{3};{4};{5};{6}";
-				var data = string.Format(userFormat, line[0], line[1], line[2], line[3], line[4], line[5], line[6]);
+				var userFormat = "{0};{1};{2};{3};{4};{5};{6};{7}";
+				var data = string.Format(userFormat, line[0], line[1], line[2], line[3], line[4], line[5], line[6],line[7]);
 				StreamWriter file = new StreamWriter("PlikTekstowy.txt", true);
 				file.WriteLine(data);
 				file.Close();
