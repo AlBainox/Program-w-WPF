@@ -14,6 +14,12 @@ namespace WPF_Panel_logowania
 	public class User
 	{
 		string  imie, nazwisko, login, haslo, nrTel, adres, email;
+		int id;
+		public int Id
+		{
+			get { return id; }
+			set { id = value; }
+		}
 
 		public UserRole Role { get; set; }
 
@@ -55,6 +61,18 @@ namespace WPF_Panel_logowania
 
 		public User(UserRole role, string imie, string nazwisko, string login, string haslo, string nrTel, string adres, string email)
 		{
+			this.Role = role;
+			this.imie = imie;
+			this.nazwisko = nazwisko;
+			this.login = login;
+			this.haslo = haslo;
+			this.nrTel = nrTel;
+			this.adres = adres;
+			this.email = email;
+		}
+		public User(int id, UserRole role, string imie, string nazwisko, string login, string haslo, string nrTel, string adres, string email)
+		{
+			this.id = id;
 			this.Role = role;
 			this.imie = imie;
 			this.nazwisko = nazwisko;

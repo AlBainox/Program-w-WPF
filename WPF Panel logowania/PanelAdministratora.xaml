@@ -9,61 +9,35 @@
     <Grid>
 		<TabControl>
 			<TabItem Header="Zamówienia">
-				<DataGrid/>
+				<DataGrid x:Name="dgZamowienia"/>
 			</TabItem>
 			<TabItem Header="Produkty">
-				<DataGrid/>
+				<DataGrid x:Name="dgProdukty"/>
 			</TabItem>
 			<TabItem Header="Klienci">
-				<DataGrid/>
+				<DataGrid x:Name="dgKlienci"/>
 			</TabItem>
 			<TabItem Header="Panel administratora">
 				<Grid Margin="10">
-
 					<Grid.RowDefinitions>
 						<RowDefinition/>
 						<RowDefinition/>
-						<RowDefinition/>
-						<RowDefinition/>
-						<RowDefinition/>
-						<RowDefinition/>
-						<RowDefinition/>
-						<RowDefinition/>
-
 					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition/>
-						<ColumnDefinition/>
-						<ColumnDefinition/>
-						<ColumnDefinition/>
-					</Grid.ColumnDefinitions>
-
-					<Label Grid.Row="0" Content="Imie"/>
-					<Label Grid.Row="1" Content="Nazwisko"/>
-					<Label Grid.Row="2" Content="Login"/>
-					<Label Grid.Row="3" Content="Hasło"/>
-					<Label Grid.Row="4" Content="Numer telefonu"/>
-					<Label Grid.Row="5" Content= "Adres"/>
-					<Label Grid.Row="6" Content="Email"/>
-
-					<Label x:Name="lblImie" Grid.Column="1" Grid.Row="0"/>
-					<Label x:Name="lblNazwisko" Grid.Column="1" Grid.Row="1"/>
-					<Label x:Name="lblLogin" Grid.Column="1" Grid.Row="2"/>
-					<Label x:Name="lblHaslo" Grid.Column="1" Grid.Row="3"/>
-					<Label x:Name="lblNrTel" Grid.Column="1" Grid.Row="4"/>
-					<Label x:Name="lblAdres" Grid.Column="1" Grid.Row="5"/>
-					<Label x:Name="lblEmail" Grid.Column="1" Grid.Row="6"/>
-
-					<TextBox x:Name="txbImie" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="0" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
-					<TextBox x:Name="txbNazwisko" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="txbLogin" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="txbHaslo" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="txbNrTel" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="4" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="txbAdres" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="5" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-					<TextBox x:Name="txbEmail" HorizontalAlignment="Left" Height="24" Margin="0,2,0,0" Grid.Row="6" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-
-					<Button x:Name="btnWyloguj" Content="Wyloguj" Grid.Column="3" HorizontalAlignment="Right" Margin="1,2,0,0" Grid.Row="8" VerticalAlignment="Center" Width="65" Click="btnWyloguj_Click" />
-					<Button x:Name="btnZapisz" Content="Zapisz" Grid.Column="3" HorizontalAlignment="Left" Margin="0,2,0,0" Grid.Row="8" VerticalAlignment="Center" Width="65" Click="btnZapisz_Click"  />
+					<DataGrid x:Name="dgDaneAdministratora"/>
+					<Button x:Name="btnWyloguj" Content="Wyloguj" HorizontalAlignment="Right" Margin="1,2,0,0" Grid.Row="1" VerticalAlignment="Bottom" Width="75" Click="btnWyloguj_Click" />
+					<Button x:Name="btnZapisz" Content="Zapisz"  HorizontalAlignment="Right" Margin="1,2,100,0" Grid.Row="1" VerticalAlignment="Bottom" Width="75" Click="btnZapisz_Click"  />
+					<TextBox x:Name="txbImie" Grid.Row="1" Width="75" Height="20" Margin="10,70,481,71"/>
+					<TextBox x:Name="txbNazwisko" Grid.Row="1" Width="75" Height="20" Margin="90,70,401,71"/>
+					<TextBox x:Name="txbHaslo" Grid.Row="1" Width="75" Height="20" Margin="170,70,321,71"/>
+					<TextBox x:Name="txbTelefon" Grid.Row="1" Width="75" Height="20" Margin="250,70,241,71"/>
+					<TextBox x:Name="txbAdres" Grid.Row="1" Width="75" Height="20" Margin="330,70,161,71"/>
+					<TextBox x:Name="txbEmail" Grid.Row="1" Width="75" Height="20" Margin="410,70,81,71"/>
+					<Label Grid.Row="1" Content="Imie" Margin="10,30,481,91" Height="25"/>
+					<Label Grid.Row="1" Content="Nazwisko" Margin="90,30,401,91" Height="25"/>
+					<Label Grid.Row="1" Content="Hasło" Margin="170,30,321,91" Height="25"/>
+					<Label Grid.Row="1" Content="Telefon" Margin="250,30,241,91" Height="25"/>
+					<Label Grid.Row="1" Content= "Adres" Margin="330,30,161,91" Height="25"/>
+					<Label Grid.Row="1" Content="Email" Margin="410,30,81,91" Height="25"/>
 				</Grid>
 			</TabItem>
 		</TabControl>

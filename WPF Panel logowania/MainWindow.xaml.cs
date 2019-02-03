@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace WPF_Panel_logowania
 {
@@ -28,8 +30,8 @@ namespace WPF_Panel_logowania
 			btnWyswietl.IsEnabled = false;
 		}
 
+		ConnectionDB conn = new ConnectionDB();
 
-		
 		public bool DisplaybtnWyswietl()
 		{
 			var result = UserManager.GetUser();
@@ -60,12 +62,12 @@ namespace WPF_Panel_logowania
 
 		private void btnLogining_Click(object sender, RoutedEventArgs e)
 		{
-			if ((txbLogin.Text == "") || (txbHaslo.Text == ""))
+			if ((txbLogin.Text == "") || (txbHaslo.Password == ""))
 			{
 				MessageBox.Show("Pola nie mogą być puste", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			string Login = txbLogin.Text;
-			string Haslo = txbHaslo.Text;
+			string Haslo = txbHaslo.Password;
 
 			Logining(Login, Haslo);
 
@@ -86,43 +88,12 @@ namespace WPF_Panel_logowania
 		}
 
 
-		public List<User> DownloadingUsers()
-		{
-			List<User> ListOfUsers = new List<User>();
-
-
-			foreach (var line in File.ReadAllLines("PlikTekstowy.txt"))
-			{
-				var userData = line.Split(';');
-				var result = userData[0];
-				var user = "user";
-				if (result == user)
-				{
-					userData[0] = 0.ToString();
-				}
-				var role = (UserRole)int.Parse(userData[0]);				
-				var im = userData[1];
-				var nazw = userData[2];
-				var login = userData[3];
-				var haslo = userData[4];
-				var nrTel = userData[5];
-				var adres = userData[6];
-				var email = userData[7];
-
-				var userFromFile = new User(role,im, nazw, login, haslo, nrTel, adres, email);
-
-				ListOfUsers.Add(userFromFile);
-			}
-						
-			return ListOfUsers;
-		}
-		
-
 		public void Logining(string log, string has)
 		{
 
-			foreach (User user in DownloadingUsers())
+			foreach (User user in conn.DownloadingUsers())
 			{
+
 				if ((log == user.Login && has == user.Haslo))
 				{
 					btnZaloguj.IsEnabled = DisplayRestOfControls();
@@ -130,19 +101,21 @@ namespace WPF_Panel_logowania
 					UserManager.SignIn(user);
 					MessageBox.Show("Udało Ci się pomyślnie zalogować!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 					btnWyswietl.IsEnabled = !btnWyswietl.IsEnabled;
-					if (user.Role==UserRole.user)
+					if (user.Role == UserRole.user)
 					{
 						PanelUzytkownika panelUzytkownika = new PanelUzytkownika();
 						panelUzytkownika.ShowDialog();
 					}
-					if (user.Role==UserRole.admin)
+					if (user.Role == UserRole.admin)
 					{
 						PanelAdministratora adminPanel = new PanelAdministratora();
 						adminPanel.ShowDialog();
 					}
 
 				}
+
 			}
+
 		}
 
 
@@ -151,7 +124,7 @@ namespace WPF_Panel_logowania
 		{
 			PanelUzytkownika panelUzytkownika = new PanelUzytkownika();
 
-			if (UserManager.GetUser().Role== UserRole.admin)
+			if (UserManager.GetUser().Role == UserRole.admin)
 			{
 				PanelAdministratora administrator = new PanelAdministratora();
 				administrator.ShowDialog();

@@ -1,3 +1,6 @@
 0;ed;ed;ed;ed;ed;ed;ed
 user;x;x;x;x;x;x;x
-1;admin;admin;admin;admin;admin;admin;admin
+1;admin;admin;admin;admin;admin;admin;admin;
+user;d;d;d;d;d;d;dadmin;admin;admin;admin;admin;admin;admin;admin
+user;ed;ed;ed;ed;ed;ed;ed
+user;q;q;q;q;q;q;q

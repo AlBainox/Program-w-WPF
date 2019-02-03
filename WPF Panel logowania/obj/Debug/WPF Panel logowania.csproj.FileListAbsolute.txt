@@ -39,3 +39,6 @@ C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nuni
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\nunit.framework.xml
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\PanelAdministratora.g.cs
 C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\obj\Debug\PanelAdministratora.baml
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\MySql.Data.dll
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\Google.Protobuf.dll
+C:\Users\Al\Desktop\Nowy folder\Program-w-WPF\WPF Panel logowania\bin\Debug\MySql.Data.xml
