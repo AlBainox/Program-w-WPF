@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace WPF_Panel_logowania
 {
@@ -26,23 +28,11 @@ namespace WPF_Panel_logowania
 		public PanelUzytkownika()
 		{
 			InitializeComponent();
-			lblImie.Content = user.Imie;
-			lblNazwisko.Content = user.Nazwisko;
-			lblLogin.Content = user.Login;
-			lblHaslo.Content = user.Haslo;
-			lblNrTel.Content = user.NrTelefonu;
-			lblAdres.Content = user.Adres;
-			lblEmail.Content = user.Email;
-
-			txbImie.Text = user.Imie;
-			txbNazwisko.Text = user.Nazwisko;
-			txbLogin.Text = user.Login;
-			txbHaslo.Text = user.Haslo;
-			txbNrTel.Text = user.NrTelefonu;
-			txbAdres.Text = user.Adres;
-			txbEmail.Text = user.Email;
+			DisplayProductTable();
+			displayCurrentUser();
 		}
 
+		protected static string myConnection = "server=127.0.0.1;uid=root;pwd=albertbrzakala;database=test";
 
 		private void btnWyloguj_Click(object sender, RoutedEventArgs e)
 		{			
@@ -54,45 +44,58 @@ namespace WPF_Panel_logowania
 
 		private void btnZapisz_Click(object sender, RoutedEventArgs e)
 		{
-						
-			var userFormat = "{0};{1};{2};{3};{4};{5};{6}";
-			var newData = string.Format(
-				userFormat,
-				txbImie.Text,
-				txbNazwisko.Text,
-				txbLogin.Text,
-				txbHaslo.Text,
-				txbNrTel.Text,
-				txbAdres.Text,
-				txbEmail.Text);
-
-
-			var oldData = string.Format(
-				userFormat,
-				user.Imie,
-				user.Nazwisko,
-				user.Login,
-				user.Haslo,
-				user.NrTelefonu,
-				user.Adres,
-				user.Email);
-
-			string text = File.ReadAllText("PlikTekstowy.txt");
-			text = text.Replace(oldData, newData);
-			File.WriteAllText("PlikTekstowy.txt", text);
-
-			lblImie.Content = user.Imie;
-			lblNazwisko.Content = user.Nazwisko;
-			lblLogin.Content = user.Login;
-			lblHaslo.Content = user.Haslo;
-			lblNrTel.Content = user.NrTelefonu;
-			lblAdres.Content = user.Adres;
-			lblEmail.Content = user.Email;
-
+			string idClient = user.Id.ToString();
+			ConnectionDB conn = new ConnectionDB();
+			conn.connect();
+			conn.Modification(idClient, txbImie.Text, txbNazwisko.Text, txbHaslo.Text, txbTelefon.Text, txbAdres.Text, txbEmail.Text);
+			conn.disconnect();	
 			MessageBox.Show("Dane zostały poprawnie zapisane","Zapis danych",MessageBoxButton.OK,MessageBoxImage.Information);
 			
+		}
 
+		public void DisplayProductTable()
+		{
+			string sql = "SELECT * FROM shop";
 
+			MySqlConnection connection = new MySqlConnection(myConnection);
+
+			try
+			{
+				connection.Open();
+
+				using (MySqlCommand cmdSl = new MySqlCommand(sql, connection))
+				{
+					DataTable dt = new DataTable();
+					MySqlDataAdapter da = new MySqlDataAdapter(cmdSl);
+					da.Fill(dt);
+
+					dgProdukty.ItemsSource = dt.DefaultView;
+				}
+			}
+			catch (MySql.Data.MySqlClient.MySqlException ex)
+			{
+				MessageBox.Show("Błąd połaczenia z bazą danych", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+			connection.Close();
+		}
+		private void displayCurrentUser()
+		{
+			using (MySqlConnection connection = new MySqlConnection(myConnection))
+			{
+				using (MySqlCommand cmd = new MySqlCommand())
+				{
+					string id = UserManager.GetUser().Id.ToString(); ;
+					cmd.Connection = connection;
+					cmd.CommandText = "SELECT * FROM	client WHERE ID=" + id;
+					cmd.Parameters.AddWithValue("id", id);
+					using (MySqlDataAdapter ad = new MySqlDataAdapter(cmd))
+					{
+						DataTable dt = new DataTable();
+						ad.Fill(dt);
+						dgDaneUsera.ItemsSource = dt.DefaultView;
+					}
+				}
+			}
 
 		}
 	}
