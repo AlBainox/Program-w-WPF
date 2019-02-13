@@ -34,7 +34,7 @@ namespace WPF_Panel_logowania
 
 		public void DisplayProductTable()
 		{
-			string sql = "SELECT * FROM shop";
+			string sql = "SELECT * FROM products";
 
 			MySqlConnection connection = new MySqlConnection(myConnection);
 

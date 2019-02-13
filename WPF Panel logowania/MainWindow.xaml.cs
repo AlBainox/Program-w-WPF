@@ -111,14 +111,9 @@ namespace WPF_Panel_logowania
 						PanelAdministratora adminPanel = new PanelAdministratora();
 						adminPanel.ShowDialog();
 					}
-
 				}
-
 			}
-
 		}
-
-
 
 		private void btnWyswietl_Click(object sender, RoutedEventArgs e)
 		{

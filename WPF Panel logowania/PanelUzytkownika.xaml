@@ -6,13 +6,24 @@
         xmlns:local="clr-namespace:WPF_Panel_logowania"
         mc:Ignorable="d"
         Title="Panel użytkownika" Height="400" Width="600">
-
 	<TabControl Margin="0,0,0,0">
 		<TabItem Header="Zamówienia">
-			<DataGrid x:Name="Zamowienia"/>
+			<DataGrid x:Name="dgZamowienia"/>
 		</TabItem>
 		<TabItem Header="Produkty">
-			<DataGrid x:Name="dgProdukty"/>
+			<StackPanel>
+				<DataGrid x:Name="dgProdukty">
+					<DataGrid.Columns>
+						<DataGridTemplateColumn>
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<Button x:Name="btnZamow" Content="Zamów" Click="btnZamow_Click" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
+			</StackPanel>
 		</TabItem>
 		<TabItem Header="Dane użytkownika">
 			<Grid Margin="10">
